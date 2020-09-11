@@ -1,0 +1,27 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json
+{
+	"name": "Fluid",
+	"build": {
+		"dockerfile": "Dockerfile",
+
+		// Update 'NODE_VERSION' to pick a Node version: 10, 12, 14
+		"args": { "NODE_VERSION": "12" }
+	},
+
+	"mounts": [ "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind" ],
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { "terminal.integrated.shell.linux": "/usr/bin/zsh" },
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+        "dbaeumer.vscode-eslint",
+        "editorconfig.editorconfig"
+    ],
+
+    // Forward port for Tinylicious
+    "forwardPorts": [ 3000 ]
+
+    // Required to provide non-root user w/access to docker (see Dockerfile)
+    // "overrideCommand": false,
+}
